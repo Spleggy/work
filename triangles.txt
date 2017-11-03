@@ -32,9 +32,9 @@ def calcPerimeter(first, second, third):
   valid = validate(first, second, third)
   if (valid == 1):
     perimeter = first + second + third
-    print("Perimeter is", perimeter)
+    print("\nPerimeter is", perimeter)
   else:
-    print("Triangle not valid!")
+    print("\nTriangle not valid!")
     perimeter = first + second + third
   return perimeter
 
@@ -72,6 +72,7 @@ def draw(first, second, third):
   
   if ((perimeter.is_integer) and (valid == 1)):
     perimeter = int(perimeter)
+    print("")
     for count in range(perimeter):
       print(" " * (perimeter - count - 1) + "* " * (count + 1))
   
@@ -89,7 +90,12 @@ def run():
   thirdSide = float(input())
   
   #Ask user which option they want
-  print("What option do you want? 1) Validate 2) Identify 3) Calculate Perimeter 4) Calculate Area 5) Draw equilateral triangle with side of perimeter of given sides")
+  print("""What option do you want?
+  1) Validate 
+  2) Identify 
+  3) Calculate Perimeter 
+  4) Calculate Area 
+  5) Draw equilateral triangle with side of perimeter of given sides (rounds to nearest whole number)""")
   
   #Read users response
   choice = int(input())
@@ -112,3 +118,5 @@ def run():
     print("That is not a valid choice!")
     
 run()
+
+
