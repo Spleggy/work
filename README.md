@@ -2,7 +2,7 @@
 reeeeeee
 
 # html stuffs
-[timetable](/work/timetable.txt/)
+[timetable](/work/timetable.txt)
 
 # python stuffs
 [triangles](/work/triangles.txt)
