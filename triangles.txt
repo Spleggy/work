@@ -73,7 +73,7 @@ def draw(first, second, third):
   if ((perimeter.is_integer) and (valid == 1)):
     perimeter = int(perimeter)
     for count in range(perimeter):
-      print(" " * (perimeter - count - 1) + "*" * ((2 * count) + 1), sep = "")
+      print(" " * (perimeter - count - 1) + "* " * (count + 1))
   
 def run():
   #Ask user for each side of a triangle
