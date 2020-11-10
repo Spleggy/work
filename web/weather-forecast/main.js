@@ -52,32 +52,40 @@ function search() {
     ajaxConnection.addEventListener("load", e => {
         var output = ""; // initialise output to blank text
 
-        //checks specifically for confirmation
+        //checks for confirmation
         if (e.target.status == 200){
           var response = JSON.parse(e.target.responseText);
           //fetch default JSON responses
           var locationResponse = response.location;
           var current = response.current;
 
+          //retrieve search term coordinates
+          var latitude = locationResponse.lat;
+          var longitude = locationResponse.lon;
+          //centre map on search
+          map.setView([latitude, longitude], 14);
+
           //fetch "condition" JSON object
           var condition = current.condition;
           var is_day = condition.is_day;
           var weather_code = condition.code;
-          var icon_path = "../weather/64x64/";
+          var loc = document.location.pathname;
+          var icon_path = loc.substring(0, loc.lastIndexOf('/')) + "/weather/64x64/";
           // add the details to the output variable
-          output = `Location: ${locationResponse} <br/>
+          output = `Location: ${locationResponse.name} <br/>
                 Last updated: ${current.last_updated} <br/>
-                Temperature(C): ${current.temp_c} <br/>
-                Feels like: ${current.feelslike_c} <br/>
-                Precipitation(mm): ${current.precip_mm} <br/>
-                Humidity: ${current.humidity} <br/>`;
+                Temperature: ${current.temp_c}&deg;C <br/>
+                Feels like: ${current.feelslike_c}&deg;C <br/>
+                Precipitation: ${current.precip_mm}mm <br/>
+                Humidity: ${current.humidity}% <br/>
+                Current weather: ${condition.text}`;
 
           //icon logic
           if (is_day == 1){
-            icon_path += `day/${weather_code}`;
+            icon_path += `day/${weather_code}.png`;
           }
           else {
-            icon_path += `night/${weather_code}`;
+            icon_path += `night/${weather_code}.png`;
           }
           //add icon to output variable
           output += `<img src=${icon_path}>`;
