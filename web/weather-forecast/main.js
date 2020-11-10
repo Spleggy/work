@@ -42,9 +42,8 @@ function init() {
 
 //define search function
 function search() {
-    // Read in the input from the form
+    // Read in the inputs from the forms
     var location = document.getElementById('location').value;
-
     // Set up the AJAX connection variable
     var ajaxConnection = new XMLHttpRequest();
 
@@ -71,11 +70,12 @@ function search() {
           var weather_code = condition.code;
           var loc = document.location.pathname;
           var icon_path = loc.substring(0, loc.lastIndexOf('/')) + "/weather/64x64/";
+
           // add the details to the output variable
           output = `Location: ${locationResponse.name} <br/>
                 Last updated: ${current.last_updated} <br/>
-                Temperature: ${current.temp_c}&deg;C <br/>
-                Feels like: ${current.feelslike_c}&deg;C <br/>
+                Temperature: ${current.temp_c}°C <br/>
+                Feels like: ${current.feelslike_c}°C <br/>
                 Precipitation: ${current.precip_mm}mm <br/>
                 Humidity: ${current.humidity}% <br/>
                 Current weather: ${condition.text}`;
