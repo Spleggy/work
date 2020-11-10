@@ -1,8 +1,2 @@
-# work
-reeeeeee
-
-# html stuffs
-[timetable](timetable.txt)
-
-# python stuffs
+# python projects
 [triangles](triangles.txt)
