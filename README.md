@@ -1,2 +1,2 @@
 # python projects
-[triangles](triangles.txt)
+[triangles](triangles/triangles.py)
